@@ -14,7 +14,7 @@ public class Database {
 	public static void connectToDB(){
 		try {
 	 	      Class.forName("org.sqlite.JDBC");
-	 	      connection = DriverManager.getConnection("jdbc:sqlite:CarDealership.db");
+	 	      connection = DriverManager.getConnection("jdbc:sqlite:ToyotaDealership.db");
 	 	      connection.setAutoCommit(false);
 	 	      System.out.println("Opened database successfully");
 		}
