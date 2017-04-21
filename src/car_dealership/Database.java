@@ -3,6 +3,8 @@ package car_dealership;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class Database {
 
@@ -69,4 +71,35 @@ public class Database {
  	     System.out.println("Records created successfully");
  
 	 }
+	 public void findEmployee() {
+	   	  
+		 connectToDB();
+		 //, DOB, SSN, Address, State, Zip, DeptID, DeptName
+ 	     try{
+ 	    	Statement statement = connection.createStatement();
+ 	    	ResultSet res = statement.executeQuery("SELECT * FROM Employee WHERE FirstName = 'Brian'");
+
+            /**
+             * Iterate over the result set from the above query
+             */
+            while (res.next())
+            {
+                System.out.println("Name: " + res.getString("FirstName") + " " + res.getString("LastName"));
+            }
+            System.out.println("----------------------------");
+ 	    	 
+
+ 	    	 connection.commit();
+ 	    	 statement.close();
+ 	    	 connection.close();
+ 	     }
+ 	     catch( Exception ex ) {
+		      System.err.println( ex.getClass().getName() + ": " + ex.getMessage() );
+		      System.exit(0);
+		 }
+ 
+ 	     System.out.println("Records created successfully");
+ 
+	 }
+	 
 }
