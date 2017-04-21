@@ -16,5 +16,10 @@ public class Controller {
 		employee.setId(empId);
 		d.insertNewEmployee(employee);
 	}
+	
+	public void viewEmployee(){
+		
+		d.findEmployee();
+	}
 
 }

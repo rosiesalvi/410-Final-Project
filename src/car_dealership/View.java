@@ -66,6 +66,9 @@ public class View {
 				
 				c.insertEmployee(e);
 			}
+			else if (response == 3){
+				c.viewEmployee();
+			}
 			else{
 				System.out.println("End");
 				loop = false;
