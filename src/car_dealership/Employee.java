@@ -93,6 +93,9 @@ public class Employee {
 	public void setZip(int zip) {
 		this.zip = zip;
 	}
+	public void setDeptId(int dID) {
+		this.deptId = dID;
+	}
 
 	public int getDeptId() {
 		return deptId;

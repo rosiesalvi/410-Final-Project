@@ -64,6 +64,14 @@ public class View {
 				String dob = scan.nextLine();
 				e.setDob(dob);
 				
+				System.out.println("Department ID?");
+				String dID = scan.nextLine();
+				e.setDeptId(Integer.parseInt(dID));
+				
+				System.out.println("Department Name?");
+				String dName = scan.nextLine();
+				e.setDeptName(dName);
+				
 				c.insertEmployee(e);
 			}
 			else if (response == 3){

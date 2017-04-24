@@ -31,7 +31,7 @@ public class Database {
 		 
  	     try{
  	    	 PreparedStatement statement = connection.prepareStatement(
- 	    			 "INSERT INTO Department (DepartmentID, DeptName) VALUES ("+dept.getId()+", '"+dept.getName()+"')");
+ 	    			 "INSERT INTO Department (DepartmentID, DepartmentName) VALUES ("+dept.getId()+", '"+dept.getName()+"')");
          
  	    	 statement.executeUpdate();
 
@@ -54,8 +54,8 @@ public class Database {
 		 //, DOB, SSN, Address, State, Zip, DeptID, DeptName
  	     try{
  	    	 PreparedStatement statement = connection.prepareStatement(
- 	    			"INSERT INTO Employee (EmpID, FirstName, LastName, SSN, Address, State, Zip, DOB) "
- 	    			+ "VALUES ("+e.getId()+", '"+e.getFirstName()+"', '"+e.getLastName()+"', "+e.getSsn()+", '"+e.getAddress()+"', '"+e.getState()+"', "+e.getZip()+", '"+e.getDob()+"')");
+ 	    			"INSERT INTO Employee (EmpID, FirsName, LasName, SSN, Address, State, Zip, DOB, DepartmentID, DepartmentName) "
+ 	    			+ "VALUES ("+e.getId()+", '"+e.getFirstName()+"', '"+e.getLastName()+"', "+e.getSsn()+", '"+e.getAddress()+"', '"+e.getState()+"', "+e.getZip()+", '"+e.getDob()+"',"+e.getDeptId()+", '"+e.getDeptName()+"')");
          
  	    	 statement.executeUpdate();
 
@@ -77,14 +77,14 @@ public class Database {
 		 //, DOB, SSN, Address, State, Zip, DeptID, DeptName
  	     try{
  	    	Statement statement = connection.createStatement();
- 	    	ResultSet res = statement.executeQuery("SELECT * FROM Employee WHERE FirstName = 'Brian'");
+ 	    	ResultSet res = statement.executeQuery("SELECT * FROM Employee WHERE FirsName = 'Daniel'");
 
             /**
              * Iterate over the result set from the above query
              */
             while (res.next())
             {
-                System.out.println("Name: " + res.getString("FirstName") + " " + res.getString("LastName"));
+                System.out.println("Name: " + res.getString("FirsName") + " " + res.getString("LasName"));
             }
             System.out.println("----------------------------");
  	    	 
