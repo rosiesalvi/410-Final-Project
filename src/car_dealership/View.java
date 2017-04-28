@@ -13,7 +13,7 @@ public class View {
 		boolean loop = true;
 		
 		while(loop == true){
-		System.out.println("Select:\n 1 for new department\n 2 for new employee\n 3 end");
+		System.out.println("Select:\n 1 for new department\n 2 for new employee\n 3 for new manager\n 4 end");
 		int response = scan.nextInt();
 		scan.nextLine();
 		
@@ -74,7 +74,31 @@ public class View {
 				
 				c.insertEmployee(e);
 			}
+			//New Manager
 			else if (response == 3){
+				Manager e = new Manager();
+				
+				System.out.println("First Name?");
+				String fName = scan.nextLine();
+				e.setFirstName(fName);
+				
+				System.out.println("Last Name?");
+				String lName = scan.nextLine();
+				e.setLastName(lName);
+				
+				
+				System.out.println("EmpId?");
+				int empId = scan.nextInt();
+				scan.nextLine();
+				e.setempId(empId);
+				
+				System.out.println("Department ID?");
+				String dID = scan.nextLine();
+				e.setDeptId(Integer.parseInt(dID));
+				
+				c.insertEmployee(e);
+			}
+			else if (response == 4){
 				c.viewEmployee();
 			}
 			else{

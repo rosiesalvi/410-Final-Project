@@ -71,6 +71,30 @@ public class Database {
  	     System.out.println("Records created successfully");
  
 	 }
+	 
+	 public void insertNewManager(Manager e) {
+	   	  
+		 connectToDB();
+		 //, DOB, SSN, Address, State, Zip, DeptID, DeptName
+ 	     try{
+ 	    	 PreparedStatement statement = connection.prepareStatement(
+ 	    			"INSERT INTO Manager (ManagerID, FirsName, LasName, EmpID, DepartmentID) "
+ 	    			+ "VALUES ("+e.getId()+", '"+e.getFirstName()+"', '"+e.getLastName()+"', "+e.getempId()+", "+e.getDeptId()+"')");
+         
+ 	    	 statement.executeUpdate();
+
+ 	    	 connection.commit();
+ 	    	 statement.close();
+ 	    	 connection.close();
+ 	     }
+ 	     catch( Exception ex ) {
+		      System.err.println( ex.getClass().getName() + ": " + ex.getMessage() );
+		      System.exit(0);
+		 }
+ 
+ 	     System.out.println("Records created successfully");
+ 
+	 }
 	 public void findEmployee() {
 	   	  
 		 connectToDB();

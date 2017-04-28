@@ -17,6 +17,12 @@ public class Controller {
 		d.insertNewEmployee(employee);
 	}
 	
+	public void insertManager(Manager manager){
+		int empId = guid.generateId();
+		manager.setId(empId);
+		d.insertNewManager(manager);
+	}
+	
 	public void viewEmployee(){
 		
 		d.findEmployee();
